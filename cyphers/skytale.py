@@ -15,7 +15,7 @@ from cyphers.base import CryptoBase
 
 
 class Skytale(CryptoBase):
-    def encrypt(x, w):
+    def encrypt2(x, w):
         n = len(x)
         assert n % w == 0
         h = n // w
@@ -26,21 +26,19 @@ class Skytale(CryptoBase):
             cypher[row + col * h]= x[i]
         return "".join(cypher)
     
-    def encrypt2(x, w):
+    def encrypt(x, w):
         n = len(x)
         assert n % w == 0
         h = n // w
         cypher = ["-"] * n
         it = iter(x)
-        for col in range(h):
-            for row in range(w):
-                cypher[col + row * h] = next(it)
+        for row in range(h):
+            for col in range(w):
+                cypher[row + col * h] = next(it)
         return "".join(cypher)
     
     def decrypt(x, w):
         return Skytale.encrypt(x, len(x) // w)
-    
-    
     
 def visualize(x, h, w):
     matrix = []
