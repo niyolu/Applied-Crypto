@@ -1,5 +1,5 @@
 from abc import ABC, abstractclassmethod
-from alphabets.latin import Latin
+from .alphabets.latin import Latin
 
 class CryptoBase(ABC):
     @abstractclassmethod
@@ -26,7 +26,7 @@ def test_caesar():
     msg = "Hallo Crypto World".upper()
     encryped = Caesar.encrypt(msg)
     decrypted = Caesar.decrypt(encryped)
-    print(msg, encryped, decrypted)
+    print(msg, encryped, decrypted, sep="\n|\nV\n")
     assert msg == decrypted
 
 if __name__ == "__main__":
