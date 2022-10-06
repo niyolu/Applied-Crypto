@@ -23,7 +23,7 @@ class Skytale(CryptoBase):
         for i in range(n):
             row = i // w
             col = i % w
-            cypher[row + col * h]= x[i]
+            cypher[row + col * h] = x[i]
         return "".join(cypher)
     
     def encrypt(x, w):
