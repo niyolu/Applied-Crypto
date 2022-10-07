@@ -1,6 +1,6 @@
 from cyphers.base import CryptoBase
 
-# skytale as a table is wound along its columns
+# scytale as a matrix; unraveled column wise
 #   H | O | W
 #  ---|---|---
 #   D | O | E
@@ -14,7 +14,7 @@ from cyphers.base import CryptoBase
 # transposed indexing inverts i and j in equation
 
 
-class Skytale(CryptoBase):
+class Scytale(CryptoBase):
     def encrypt2(x, w):
         n = len(x)
         assert n % w == 0
@@ -38,17 +38,9 @@ class Skytale(CryptoBase):
         return "".join(cypher)
     
     def decrypt(x, w):
-        return Skytale.encrypt(x, len(x) // w)
+        return Scytale.encrypt(x, len(x) // w)
     
 def visualize(x, h, w):
     matrix = []
-    n = len(x)
     for j in range(h):
         print(x[j: j + h * w: h])
-            
-
-    
-
-
-
-    
