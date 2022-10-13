@@ -8,7 +8,7 @@ class Alphabetmeta(type):
             return super().__new__(cls, clsname, bases, attrs)
         del attrs["symbols"]
         attrs["_idx2symbols"] = symbols
-        attrs["_symbols2idx"] = {utf: idx for idx, utf in enumerate(map(ord, symbols))}
+        attrs["_symbols2idx"] =  dict(map(reversed, enumerate(map(ord, symbols))))
         attrs["_symbol_len"] = len(symbols)
         attrs["delim"] = attrs.get("delim", DEFAULT_DELIM)
         attrs["ord"] = classmethod(lambda ctx, s: getattr(ctx, "_symbols2idx")[ord(s)])
