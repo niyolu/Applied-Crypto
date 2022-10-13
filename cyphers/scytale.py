@@ -16,10 +16,10 @@ import numpy as np
 
 
 class Scytale(CryptoBase):
-    def encrypt(x, w):
+    def encrypt_np(x, w):
         return "".join(np.array(list(x)).reshape((len(x) // w, w)).T.ravel())
     
-    def encrypt2(x, w):
+    def encrypt_2(x, w):
         n = len(x)
         assert n % w == 0
         h = n // w
@@ -30,7 +30,7 @@ class Scytale(CryptoBase):
             cypher[row + col * h] = c
         return "".join(cypher)
     
-    def encrypt3(x, w):
+    def encrypt(x, w):
         n = len(x)
         assert n % w == 0
         h = n // w
